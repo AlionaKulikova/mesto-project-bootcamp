@@ -1,0 +1,14 @@
+.profile-info {
+  margin: 22px 0 0 3.75px;
+  padding: 0;
+  display: flex;
+  flex-flow: column wrap;
+}
+
+@media screen and (max-width: 768px) {
+  .profile-info {
+    align-content: space-between;
+    margin-top: 22.25px 19px 0 19px;
+    max-width: 320px;
+  }
+}

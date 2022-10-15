@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mesto</title>
+    <link rel="stylesheet" href="pages/index.css" />
+  </head>
+  <body class="body">
+    <div class="popup popup_opened">
+      <div class="popup__overlay"></div>
+      <div class="popup__container">
+        <a href="#" class="popup__close"></a>
+        <form class="form">
+          <h1 class="form__title">Редактировать профиль</h1>
+          <input type="text" name="name" class="form__field-1" value="Жак-Ив Кусто" />
+          <div class="form__line"></div>
+          <input type="text" name="informaciya" class="form__field-2" value="Исследователь океана" />
+          <div class="form__line"></div>
+          <a class="form__button-save" href="#">
+            <div class="form__submit-button">
+              <p class="form__submit-button_text_center">Сохранить</p>
+            </div>
+          </a>
+        </form>
+      </div>
+    </div>
+    <div class="page">
+      <header class="header">
+        <div class="header__logo"></div>
+        <div class="header__line"></div>
+      </header>
+      <main class="content"></main>
+      <section class="profile">
+        <div class="avatar">
+          <img class="avatar__image-avatar" src="images/Zhak-Iv_Kusto.png" alt="Жак-Ив Кусто" />
+        </div>
+        <div class="profile-info">
+          <div class="profile-info__top-container">
+            <h1 class="profile-info__title">Жак-Ив Кусто</h1>
+            <div class="profile-info__edit-button">
+              <a href="#">
+                <img class="profile-info__image-edit" src="images/edit.png" alt="редактировать" />
+              </a>
+            </div>
+          </div>
+          <h2 class="profile-info__subtitle">Исследователь океана</h2>
+        </div>
+        <div class="add-button">
+          <a href="#">
+            <img class="add-button__image-add" src="images/add.png" alt="добавить" />
+          </a>
+        </div>
+      </section>
+      <section class="elements">
+        <div class="element">
+          <img class="element__image-element" src="images/altay.jpg" alt="Горы алтая" />
+          <div class="element__group">
+            <h2 class="element__title">Горы алтая</h2>
+            <a href="#"><img class="element__vector" src="images/like.png" alt="нравится" /></a>
+          </div>
+        </div>
+        <div class="element">
+          <img class="element__image-element" src="images/karachaevsk.png" alt="Карачаево-Черкесия" />
+          <div class="element__group">
+            <h2 class="element__title">Карачаево-Черкесия</h2>
+            <a href="#"><img class="element__vector" src="images/like.png" alt="нравится" /></a>
+          </div>
+        </div>
+        <div class="element">
+          <img class="element__image-element" src="images/kamchatka.jpg" alt="Камчатка" />
+          <div class="element__group">
+            <h2 class="element__title">Камчатка</h2>
+            <a href="#"><img class="element__vector" src="images/like.png" alt="нравится" /></a>
+          </div>
+        </div>
+        <div class="element">
+          <img class="element__image-element" src="images/gora_elbrus.png" alt="Гора Эльбрус" />
+          <div class="element__group">
+            <h2 class="element__title">Гора Эльбрус</h2>
+            <a href="#"><img class="element__vector" src="images/like.png" alt="нравится" /></a>
+          </div>
+        </div>
+        <div class="element">
+          <img class="element__image-element" src="images/lastochkino-gnezdo.jpg" alt="Ласточкино гнездо" />
+          <div class="element__group">
+            <h2 class="element__title">Ласточкино гнездо</h2>
+            <a href="#"><img class="element__vector" src="images/like.png" alt="нравится" /></a>
+          </div>
+        </div>
+        <div class="element">
+          <img class="element__image-element" src="images/dombay.png" alt="Домбай" />
+          <div class="element__group">
+            <h2 class="element__title">Домбай</h2>
+            <a href="#"><img class="element__vector" src="images/like.png" alt="нравится" /></a>
+          </div>
+        </div>
+      </section>
+      <footer class="footer">
+        <p class="footer__copyright">© 2020 Mesto Russia</p>
+      </footer>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,35 @@
+.footer {
+  margin: 66px auto 60px auto;
+  padding: 0;
+  max-width: 880px;
+  min-height: 18px;
+}
+
+@media screen and (max-width: 1024px) {
+  .footer {
+    width: 600px;
+    min-height: 14px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .footer {
+    margin-top: 48px;
+    margin-bottom: 36px;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+    color: #545454;
+  }
+}
+@media screen and (max-width: 600px) {
+  .footer {
+    width: 569px;
+  }
+}
+@media screen and (max-width: 586px) {
+  .footer {
+    width: 282px;
+  }
+}

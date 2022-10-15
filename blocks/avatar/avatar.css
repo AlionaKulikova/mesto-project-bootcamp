@@ -1,0 +1,22 @@
+.avatar {
+  margin: 0;
+  padding: 0;
+  height: 127.5px;
+  width: 168.75px;
+  margin: -3.75px -26.25px -3.75px -22.5px;
+  margin-right: 3.75px;
+}
+
+@media screen and (max-width: 1024px) {
+  .avatar {
+    margin-right: auto;
+    margin-left: auto;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .avatar {
+    margin-right: 78.5px;
+    margin-left: 72.75px;
+  }
+}

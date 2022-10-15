@@ -1,0 +1,14 @@
+.profile-info__top-container {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-flow: row nowrap;
+}
+
+@media screen and (max-width: 768px) {
+  .profile-info__top-container {
+    align-content: space-between;
+    min-width: 217px;
+    margin-left: 46px;
+  }
+}

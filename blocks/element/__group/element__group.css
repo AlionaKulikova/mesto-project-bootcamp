@@ -1,0 +1,8 @@
+.element__group {
+  margin: 25px 15px 0 21px;
+  padding: 0;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  width: 246px;
+}

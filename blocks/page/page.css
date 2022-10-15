@@ -1,0 +1,11 @@
+.page {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  min-height: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  font-family: 'Inter', sans-serif;
+  color: #FFFFFF;
+  background-color: #000000;
+}

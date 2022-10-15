@@ -1,0 +1,12 @@
+.popup_opened {
+  display: block;
+  margin: 0;
+  padding: 0;
+  position: fixed;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 100%;
+  z-index: 1;
+}

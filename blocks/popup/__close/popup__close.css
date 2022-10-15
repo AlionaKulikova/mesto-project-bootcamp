@@ -1,0 +1,36 @@
+.popup__close {
+  margin: 155px 385px 0 863px;
+  padding: 0;
+  background-image: url("../../../images/close.png");
+  background-size: cover;
+  position: relative;
+  width: 32px;
+  height: 32px;
+  z-index: 2;
+  opacity: 1;
+}
+
+.popup__close:hover {
+  opacity: 0.6;
+}
+
+@media screen and (max-width: 600px) {
+  .popup__close {
+    width: 20px;
+    height: 20px;
+    margin: 150px 19px 0 433px;
+  }
+}
+
+@media screen and (max-width: 591px) {
+  .popup__close {
+    margin-top: 87px;
+    margin-left: 423px;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .popup__close {
+    margin-left: 281px;
+  }
+}

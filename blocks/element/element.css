@@ -1,0 +1,21 @@
+.element {
+  margin: 1px 0 2px 0;
+  padding: 0;
+  display: flex;
+  flex-flow: column wrap;
+  width: 282px;
+  height: 361px;
+  background: #ffffff;
+  border-radius: 10px;
+}
+
+.element:last-of-type {
+  margin-bottom: 1px;
+}
+
+@media screen and (max-width: 425px) {
+ .element {
+  margin-left: auto;
+  margin-right: auto;
+ }
+}

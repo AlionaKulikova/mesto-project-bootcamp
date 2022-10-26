@@ -5,100 +5,120 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Mesto</title>
     <link rel="stylesheet" href="pages/index.css" />
+    <script src="js/main.js" defer></script>
   </head>
   <body class="body">
-    <div class="popup popup_opened">
-      <div class="popup__overlay"></div>
-      <div class="popup__container">
-        <a href="#" class="popup__close"></a>
-        <form class="form">
-          <h1 class="form__title">Редактировать профиль</h1>
-          <input type="text" name="name" class="form__field-1" value="Жак-Ив Кусто" />
-          <div class="form__line"></div>
-          <input type="text" name="informaciya" class="form__field-2" value="Исследователь океана" />
-          <div class="form__line"></div>
-          <a class="form__button-save" href="#">
-            <div class="form__submit-button">
-              <p class="form__submit-button_text_center">Сохранить</p>
-            </div>
-          </a>
-        </form>
-      </div>
-    </div>
     <div class="page">
       <header class="header">
         <div class="header__logo"></div>
-        <div class="header__line"></div>
       </header>
-      <main class="content"></main>
-      <section class="profile">
-        <div class="avatar">
-          <img class="avatar__image-avatar" src="images/Zhak-Iv_Kusto.png" alt="Жак-Ив Кусто" />
-        </div>
-        <div class="profile-info">
-          <div class="profile-info__top-container">
-            <h1 class="profile-info__title">Жак-Ив Кусто</h1>
-            <div class="profile-info__edit-button">
-              <a href="#">
-                <img class="profile-info__image-edit" src="images/edit.png" alt="редактировать" />
-              </a>
+      <main class="content">
+        <section class="profile">
+          <img class="profile__avatar" src="images/Zhak-Iv_Kusto.png" alt="Жак-Ив Кусто" />
+          <div class="profile__info">
+            <div class="profile__top-container">
+              <h1 id="profileName" class="profile__title">Жак-Ив Кусто</h1>
+              <button class="profile__edit-button" type="submit">
+                <img class="profile__image-edit" src="images/Vector-edit.svg" alt="редактировать" />
+              </button>
             </div>
+            <h2 id="profileOccupation" class="profile__subtitle">Исследователь океана</h2>
           </div>
-          <h2 class="profile-info__subtitle">Исследователь океана</h2>
-        </div>
-        <div class="add-button">
-          <a href="#">
-            <img class="add-button__image-add" src="images/add.png" alt="добавить" />
-          </a>
-        </div>
-      </section>
-      <section class="elements">
-        <div class="element">
-          <img class="element__image-element" src="images/altay.jpg" alt="Горы алтая" />
-          <div class="element__group">
-            <h2 class="element__title">Горы алтая</h2>
-            <a href="#"><img class="element__vector" src="images/like.png" alt="нравится" /></a>
+          <button class="add-button" type="submit">
+            <img class="add-button__image-add" src="images/Vector.svg" alt="добавить" />
+          </button>
+        </section>
+        <section class="elements">
+          <div class="element">
+            <button class="element__picture"><img class="element__image-element" id="card1" alt="Архыз" /></button>
+            <div class="element__group">
+              <h2 class="element__title" id="title1"></h2>
+              <button class="element__vector" type="submit"><img class="like" src="images/Group.svg" alt="нравится" /></button>
+            </div>
+            <button class="element__delete" type="button"><img src="images/Trash.svg" /></button>
           </div>
-        </div>
-        <div class="element">
-          <img class="element__image-element" src="images/karachaevsk.png" alt="Карачаево-Черкесия" />
-          <div class="element__group">
-            <h2 class="element__title">Карачаево-Черкесия</h2>
-            <a href="#"><img class="element__vector" src="images/like.png" alt="нравится" /></a>
+          <div class="element">
+            <button class="element__picture"><img class="element__image-element" id="card2" alt="Челябинская область" /></button>
+            <div class="element__group">
+              <h2 class="element__title" id="title2"></h2>
+              <button class="element__vector" type="submit"><img class="like" src="images/Group.svg" alt="нравится" /></button>
+            </div>
+            <button class="element__delete" type="submit"><img src="images/Trash.svg" /></button>
           </div>
-        </div>
-        <div class="element">
-          <img class="element__image-element" src="images/kamchatka.jpg" alt="Камчатка" />
-          <div class="element__group">
-            <h2 class="element__title">Камчатка</h2>
-            <a href="#"><img class="element__vector" src="images/like.png" alt="нравится" /></a>
+          <div class="element">
+            <button class="element__picture"><img class="element__image-element" id="card3" alt="Иваново" /></button>
+            <div class="element__group">
+              <h2 class="element__title" id="title3"></h2>
+              <button class="element__vector" type="submit"><img class="like" src="images/Group.svg" alt="нравится" /></button>
+            </div>
+            <button class="element__delete" type="submit"><img src="images/Trash.svg" /></button>
           </div>
-        </div>
-        <div class="element">
-          <img class="element__image-element" src="images/gora_elbrus.png" alt="Гора Эльбрус" />
-          <div class="element__group">
-            <h2 class="element__title">Гора Эльбрус</h2>
-            <a href="#"><img class="element__vector" src="images/like.png" alt="нравится" /></a>
+          <div class="element">
+            <button class="element__picture"><img class="element__image-element" id="card4" alt="Камчатка" /></button>
+            <div class="element__group">
+              <h2 class="element__title" id="title4"></h2>
+              <button class="element__vector" type="submit"><img class="like" src="images/Group.svg" alt="нравится" /></button>
+            </div>
+            <button class="element__delete" type="submit"><img src="images/Trash.svg" /></button>
           </div>
-        </div>
-        <div class="element">
-          <img class="element__image-element" src="images/lastochkino-gnezdo.jpg" alt="Ласточкино гнездо" />
-          <div class="element__group">
-            <h2 class="element__title">Ласточкино гнездо</h2>
-            <a href="#"><img class="element__vector" src="images/like.png" alt="нравится" /></a>
+          <div class="element">
+            <button class="element__picture"><img class="element__image-element" id="card5" alt="Холмогорский район" /></button>
+            <div class="element__group">
+              <h2 class="element__title" id="title5"></h2>
+              <button class="element__vector" type="submit"><img class="like" src="images/Group.svg" alt="нравится" /></button>
+            </div>
+            <button class="element__delete" type="submit"><img src="images/Trash.svg" /></button>
           </div>
-        </div>
-        <div class="element">
-          <img class="element__image-element" src="images/dombay.png" alt="Домбай" />
-          <div class="element__group">
-            <h2 class="element__title">Домбай</h2>
-            <a href="#"><img class="element__vector" src="images/like.png" alt="нравится" /></a>
+          <div class="element">
+            <button class="element__picture"><img class="element__image-element" alt="Байкал" id="card6" /></button>
+            <div class="element__group">
+              <h2 class="element__title" id="title6"></h2>
+              <button class="element__vector" type="submit"><img class="like" src="images/Group.svg" alt="нравится" /></button>
+            </div>
+            <button class="element__delete" type="submit"><img src="images/Trash.svg" /></button>
           </div>
-        </div>
-      </section>
+        </section>
+      </main>
       <footer class="footer">
         <p class="footer__copyright">© 2020 Mesto Russia</p>
       </footer>
+      <div class="popup" id="profile-edit">
+        <div class="popup__container">
+          <button class="popup__close" id="profile-close" type="submit"></button>
+          <h2 class="form__title">Редактировать профиль</h2>
+          <form class="form" name="profile">
+            <input type="text" name="name" class="form__field" id="nameInput" />
+            <input type="text" name="job" class="form__field" id="jobInput" />
+            <button type="button" id="save" class="form__submit-button">
+              <p class="form__submit-button_text_center">Сохранить</p>
+            </button>
+          </form>
+        </div>
+      </div>
+      <div class="popup" id="new-mesto">
+        <div class="popup__container">
+          <button class="popup__close" id="new-close" type="submit"></button>
+          <h2 class="form__title">Новое место</h2>
+          <form class="form" name="profile">
+            <input type="text" name="nameImage" class="form__field_name_text" id="nameImage" />
+            <input type="text" name="addLink" class="form__field_name_text" id="addLink" />
+            <button type="button" id="create" class="form__submit-button">
+              <p class="form__submit-button_text_center">Создать</p>
+            </button>
+          </form>
+        </div>
+      </div>
+      <div class="popup popup-picture" id="picture">
+        <div class="popup__container">
+          <div class="picture">
+            <button class="popup__close popup_close-picture" id="picture-close" type="submit"></button>
+            <figure class="picture__image">
+              <img class="picture__images" src="" alt="" />
+              <figcaption class="picture__caption"></figcaption>
+            </figure>
+          </div>
+        </div>
+      </div>
     </div>
   </body>
 </html>

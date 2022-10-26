@@ -1,4 +1,5 @@
 .element__image-element {
+  position: relative;
   margin: 0;
   padding: 0;
   height: 282px;
@@ -6,4 +7,5 @@
   background-repeat: no-repeat;
   background-size: cover;
   border-radius: 10px 10px 0 0;
+  object-fit: cover;
 }

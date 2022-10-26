@@ -1,0 +1,26 @@
+.form__field_name_text {
+  margin: 30px 36px 0 36px;
+  padding: 0;
+  width: 358px;
+  height: 14px;
+  border: 0;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+  color: #000000;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+@media screen and (max-width: 600px) {
+  .form__field_name_text {
+    min-width: 238px;
+    margin: 30px 22px 0 22px;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .form__field_name_text {
+    width: 238px;
+  }
+}

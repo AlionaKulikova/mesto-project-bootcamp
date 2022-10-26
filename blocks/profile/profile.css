@@ -15,7 +15,7 @@
 
 @media screen and (max-width: 768px) {
   .profile {
-    margin-top: 42px;
+    margin-top: 38.25px;
     flex-flow: column wrap;
     align-content: space-between;
     width: 320px;

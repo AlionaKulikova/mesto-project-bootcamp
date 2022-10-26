@@ -1,7 +1,10 @@
 .popup__close {
+  outline: none;
+  background-color: transparent;
+  border: none;
   margin: 155px 385px 0 863px;
   padding: 0;
-  background-image: url("../../../images/close.png");
+  background-image: url("../../../images/Close Icon.svg");
   background-size: cover;
   position: relative;
   width: 32px;

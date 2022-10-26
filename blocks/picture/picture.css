@@ -1,0 +1,22 @@
+.picture {
+  margin: 0;
+  padding: 0;
+  margin-top: 90px;
+  max-width: 75vw;
+  max-height: 75vh;
+  object-fit: cover;
+}
+
+@media screen and (max-width: 425px) {
+  .picture__images {
+    min-width: 240px;
+    max-width: 299px;
+  }
+}
+
+@media screen and (max-width: 405px) {
+  .picture__images {
+    min-width: 240px;
+    max-width: 299px;
+  }
+}

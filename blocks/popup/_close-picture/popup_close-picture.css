@@ -1,0 +1,14 @@
+.popup_close-picture {
+  margin: 0;
+  padding: 0;
+  position: relative;
+  margin-left: 0px;
+  float: right;
+  margin-top: -40px;
+}
+
+@media screen and (max-width: 600px) {
+  .popup__close-picture {
+    margin-top: -36px;
+  }
+}

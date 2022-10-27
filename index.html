@@ -113,12 +113,22 @@
           <div class="picture">
             <button class="popup__close popup_close-picture" id="picture-close" type="submit"></button>
             <figure class="picture__image">
-              <img class="picture__images" src="" alt="" />
+              <img class="picture__images" />
               <figcaption class="picture__caption"></figcaption>
             </figure>
           </div>
         </div>
       </div>
     </div>
+    <template id="card-template">
+      <div class="element">
+        <button class="element__picture"><img class="element__image-element" /></button>
+        <div class="element__group">
+          <h2 class="element__title"></h2>
+          <button class="element__vector" type="submit"><img class="like" src="images/Group.svg" alt="нравится" /></button>
+        </div>
+        <button class="element__delete" type="button"><img src="images/Trash.svg" /></button>
+      </div>
+    </template>
   </body>
 </html>

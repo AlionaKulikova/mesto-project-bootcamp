@@ -98,11 +98,11 @@ const submitCreate = document.querySelector("#create").addEventListener("click",
 
 function createCard(e) {
   const container = document.querySelector(".elements");
-  const element = document.querySelector(".element");
-  const elementCopy = element.cloneNode(true);
+  const elementTemplate = document.querySelector("#card-template").content;
+  const elementCopy = elementTemplate.querySelector(".element").cloneNode(true);
   container.prepend(elementCopy);
-  const card = container;
 
+  const card = container;
   card.querySelector(".like").setAttribute("src", "images/Group.svg");
   card.querySelector(".element__vector").addEventListener("click", likes, true);
   card.querySelector(".element__delete").addEventListener("click", deleteCard, true);

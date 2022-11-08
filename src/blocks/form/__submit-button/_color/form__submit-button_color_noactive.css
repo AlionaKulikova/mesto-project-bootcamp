@@ -1,0 +1,10 @@
+.form__submit-button_color_noactive {
+  margin: 0;
+  padding: 0;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  color: black !important;
+  background: white !important;
+  border: 1px solid #000000 !important;
+  opacity: 0.2 !important;
+}

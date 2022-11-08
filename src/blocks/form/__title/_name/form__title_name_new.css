@@ -1,7 +1,10 @@
-.form__title {
+.form__title_name_new {
+  margin: 0;
+  padding: 0;
   position: relative;
   max-width: 330px;
   margin-left: 36px;
+  margin-right: 235px;
   margin-top: 34px;
   font-style: normal;
   font-weight: 900;
@@ -10,10 +13,18 @@
   color: #000000;
   z-index: 2;
 }
-
 @media screen and (max-width: 600px) {
-  .form__title {
-    max-width: 238px;
+  .form__title_name_new {
+    max-width: 330px;
+    margin: 41px 242px 0 10px;
+    font-size: 18px;
+    line-height: 22px;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .form__title_name_new {
+    width: 238px;
     margin: 41px auto 0 auto;
     font-size: 18px;
     line-height: 22px;

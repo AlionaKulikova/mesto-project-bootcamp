@@ -1,7 +1,8 @@
 .form__title {
   position: relative;
-  max-width: 330px;
+  width: 330px;
   margin-left: 36px;
+  margin-right: 64px;
   margin-top: 34px;
   font-style: normal;
   font-weight: 900;
@@ -13,7 +14,7 @@
 
 @media screen and (max-width: 600px) {
  .form__title {
-    max-width: 238px;
+    width: 238px;
     margin: 41px auto 0 auto;
     font-size: 18px;
     line-height: 22px;

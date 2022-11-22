@@ -2,9 +2,9 @@
   margin: 0;
   padding: 0;
   position: relative;
-  max-width: 330px;
+  width: 330px;
   margin-left: 36px;
-  margin-right: 235px;
+  margin-right: 64px;
   margin-top: 34px;
   font-style: normal;
   font-weight: 900;
@@ -16,7 +16,7 @@
 @media screen and (max-width: 600px) {
   .form__title_name_new {
     max-width: 330px;
-    margin: 41px 242px 0 10px;
+    margin: 41px 64px 0 10px;
     font-size: 18px;
     line-height: 22px;
   }

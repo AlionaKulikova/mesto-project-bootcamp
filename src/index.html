@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Mesto</title>
-      <script type="module" src="index.js" defer></script>
+    <script type="module" src="index.js" defer></script>
   </head>
   <body class="body">
     <div class="page">
@@ -13,7 +13,9 @@
       </header>
       <main class="content">
         <section class="profile">
-          <img class="profile__avatar" src="<%=require('./images/Zhak-Iv_Kusto.png')%>" alt="Жак-Ив Кусто" />
+          <div class="profile__avatar">
+            <img class="profile__avatar-img" src="<%=require('./images/Zhak-Iv_Kusto.png')%>" alt="Жак-Ив Кусто" />
+          </div>
           <div class="profile__info">
             <div class="profile__top-container">
               <h1 id="profileName" class="profile__title">Жак-Ив Кусто</h1>
@@ -83,6 +85,22 @@
           </div>
         </div>
       </div>
+
+      <div class="popup" id="editPhoto">
+        <div class="popup__container">
+          <button class="popup__close" id="new-close" type="submit"></button>
+          <h2 class="form__title form__title_name_new">Обновить аватар</h2>
+          <form id="form-photo" class="form form-new form-photo" type="submit" name="profile-photo" novalidate>
+            <div id="linkCardPhoto">
+              <input type="url" name="addLinkPhoto" class="form__field_name_text form__field" id="profileAddLink" />
+              <p class="form__error form__error_hidden"></p>
+            </div>
+            <button type="button" id="edit" class="form__submit-button form__submit-button_text_center form__submit-button_color_noactive" disabled>
+              Сохранить
+            </button>
+          </form>
+        </div>
+      </div>
     </div>
     <template id="card-template">
       <div class="element">
@@ -91,7 +109,8 @@
           <h2 class="element__title"></h2>
           <button class="element__vector" type="submit"><img class="like" src="<%=require('./images/Group.svg')%>" alt="нравится" /></button>
         </div>
-        <button class="element__delete" type="button"><img src="<%=require('./images/Trash.svg')%>" /></button>
+        <div class="element__likes"></div>
+        <button class="element__delete" type="button"><img class="delete" src="<%=require('./images/Trash.svg')%>" /></button>
       </div>
     </template>
   </body>

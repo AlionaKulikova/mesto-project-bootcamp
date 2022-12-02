@@ -1,9 +1,5 @@
-export function validFormProfile() {
-  const form = document.querySelector("#form");
-  const validators = {
-    name: validateUsername,
-    job: validateJob,
-  };
+export function enableValidation(form, validators) {
+  console.log(validators);
 
   const inputGroups = {
     name: "#nameInputGroup",
@@ -75,40 +71,35 @@ export function validFormProfile() {
     const validator = validators[key];
     return validator(value, values);
   }
-
-  function validateUsername(value, values) {
-    if (!value) {
-      return "Вы пропустили это поле";
-    }
-    if (value.length < 2) {
-      return "Минимальное количество символов:2. Длина текста сейчас: 1 символ";
-    }
-    if (value.length > 40) {
-      return "Максимальное количество символов:40";
-    }
-    return null;
-  }
-
-  function validateJob(value, values) {
-    if (!value) {
-      return "Вы пропустили это поле";
-    }
-    if (value.length < 2) {
-      return "Минимальное количество символов:2. Длина текста сейчас: 1 символ";
-    }
-    if (value.length > 200) {
-      return "Максимальное количество символов:40";
-    }
-    return null;
-  }
 }
 
-export function validFormNewMesto() {
-  const formNew = document.querySelector("#form-new");
-  const validatorsNew = {
-    nameImage: validateNameCard,
-    addLink: validateLink,
-  };
+export function validateUsername(value, values) {
+  if (!value) {
+    return "Вы пропустили это поле";
+  }
+  if (value.length < 2) {
+    return "Минимальное количество символов:2. Длина текста сейчас: 1 символ";
+  }
+  if (value.length > 40) {
+    return "Максимальное количество символов:40";
+  }
+  return null;
+}
+
+export function validateJob(value, values) {
+  if (!value) {
+    return "Вы пропустили это поле";
+  }
+  if (value.length < 2) {
+    return "Минимальное количество символов:2. Длина текста сейчас: 1 символ";
+  }
+  if (value.length > 200) {
+    return "Максимальное количество символов:40";
+  }
+  return null;
+}
+
+export function enableValidationNew(formNew, validatorsNew) {
   const inputGroupsNew = {
     nameImage: "#nameCard",
     addLink: "#linkCard",
@@ -176,44 +167,38 @@ export function validFormNewMesto() {
     const validatorNew = validatorsNew[key];
     return validatorNew(value, values);
   }
-
-  function validateNameCard(value) {
-    if (!value) {
-      return "Вы пропустили это поле";
-    }
-    if (value.length < 2) {
-      return "Минимальное количество символов:2. Длина текста сейчас: 1 символ";
-    }
-    if (value.length > 30) {
-      return "Максимальное количество символов:40";
-    }
-    return null;
-  }
-
-  function validateLink(value) {
-    if (!value) {
-      return "Вы пропустили это поле";
-    }
-    const input = document.createElement("input");
-    input.type = "url";
-    input.required = true;
-    input.value = value;
-    const isValid = typeof input.checkValidity === "function" ? input.checkValidity() : /\S+@\S+\.\S+/.test(value);
-    if (isValid) {
-      return null;
-    }
-    return "Введите адрес сайта";
-  }
 }
 
-export function validFormProfilePhoto() {
-  const formPhoto = document.querySelector("#form-photo");
-  const validatorsPhoto = {
-    //nameImage: validateNameCard,
-    addLinkPhoto: validateLinkPhoto,
-  };
+export function validateNameCard(value) {
+  if (!value) {
+    return "Вы пропустили это поле";
+  }
+  if (value.length < 2) {
+    return "Минимальное количество символов:2. Длина текста сейчас: 1 символ";
+  }
+  if (value.length > 30) {
+    return "Максимальное количество символов:40";
+  }
+  return null;
+}
+
+export function validateLink(value) {
+  if (!value) {
+    return "Вы пропустили это поле";
+  }
+  const input = document.createElement("input");
+  input.type = "url";
+  input.required = true;
+  input.value = value;
+  const isValid = typeof input.checkValidity === "function" ? input.checkValidity() : /\S+@\S+\.\S+/.test(value);
+  if (isValid) {
+    return null;
+  }
+  return "Введите адрес сайта";
+}
+
+export function enableValidationPhoto(formPhoto, validatorsPhoto) {
   const inputGroupsPhoto = {
-   // nameImage: "#nameCard",
     addLinkPhoto: "#linkCardPhoto",
   };
 
@@ -279,20 +264,19 @@ export function validFormProfilePhoto() {
     const validatorPhoto = validatorsPhoto[key];
     return validatorPhoto(value, values);
   }
+}
 
-
-  function validateLinkPhoto(value) {
-    if (!value) {
-      return "Вы пропустили это поле";
-    }
-    const input = document.createElement("input");
-    input.type = "url";
-    input.required = true;
-    input.value = value;
-    const isValid = typeof input.checkValidity === "function" ? input.checkValidity() : /\S+@\S+\.\S+/.test(value);
-    if (isValid) {
-      return null;
-    }
-    return "Введите адрес сайта";
+export function validateLinkPhoto(value) {
+  if (!value) {
+    return "Вы пропустили это поле";
   }
+  const input = document.createElement("input");
+  input.type = "url";
+  input.required = true;
+  input.value = value;
+  const isValid = typeof input.checkValidity === "function" ? input.checkValidity() : /\S+@\S+\.\S+/.test(value);
+  if (isValid) {
+    return null;
+  }
+  return "Введите адрес сайта";
 }

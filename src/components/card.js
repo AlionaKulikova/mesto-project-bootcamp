@@ -109,6 +109,16 @@ export function createCard(item, user) {
   const likeLong = sumlikes.length;
   const likesCard = (document.querySelector(".element__likes").textContent = likeLong);
   const countLike = document.querySelector(".element__likes").setAttribute("id", idCard);
+  const targetCardLike = standartCard.likes;
+  targetCardLike.forEach(function (item) {
+    const mylike = item;
+    const idMylike = mylike._id;
+    if (idCardDel === idMylike) {
+      card.querySelector(".like").setAttribute("src", likeBlack);
+    } else {
+      card.querySelector(".like").setAttribute("src", likeWhite);
+    }
+  });
   const targetCardProfile = standartCard.owner;
   const idTargetCardProfile = targetCardProfile._id;
   if (idCardDel === idTargetCardProfile) {
@@ -116,7 +126,6 @@ export function createCard(item, user) {
   } else {
     card.querySelector(".delete").removeAttribute("src");
   }
-  card.querySelector(".like").setAttribute("src", likeWhite);
   card.querySelector(".like").setAttribute("id", idCard);
   const titleOneNew = (document.querySelector(".element__title").textContent = imageName);
   const linkCardNew = document.querySelector(".element__image-element").setAttribute("src", imageSrc);

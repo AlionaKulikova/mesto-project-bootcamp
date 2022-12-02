@@ -93,7 +93,6 @@ submitSave.addEventListener("click", function (evt) {
   }
 });
 
-profileLinkInput.setAttribute("value", "Ссылка на аватар");
 submitSavePhoto.addEventListener("click", function (evt) {
   if (evt.target.classList.contains("form__submit-button")) {
     const valueImageSrcPhoto = document.getElementById("profileAddLink").value;
@@ -112,7 +111,6 @@ submitSavePhoto.addEventListener("click", function (evt) {
             console.log(err);
           });
         closePopup(popupProfilePhoto);
-        document.querySelector("#profileAddLink").value = "Ссылка на аватар";
         textButtonSavePhoto.setAttribute("disabled", true);
         textButtonSavePhoto.classList.add("form__submit-button_color_noactive");
         textButtonSavePhoto.textContent = "Сохранить";
@@ -150,8 +148,6 @@ Promise.all([MyUser, AllCards])
   });
 
 addButton.addEventListener("click", () => openPopup(popupNewMesto));
-nameImageEdit.setAttribute("value", "Название");
-addLinkEdit.setAttribute("value", "Ссылка на картинку");
 submitCreate.addEventListener("click", function (evt) {
   if (evt.target.classList.contains("form__submit-button")) {
     const valueImageName = document.getElementById("nameImage").value;

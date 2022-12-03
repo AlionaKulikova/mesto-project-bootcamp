@@ -1,5 +1,4 @@
 export function enableValidation(form, validators) {
-  console.log(validators);
 
   const inputGroups = {
     name: "#nameInputGroup",
@@ -139,8 +138,6 @@ export function enableValidationNew(formNew, validatorsNew) {
   });
   formNew.addEventListener("submit", (e) => {
     e.preventDefault();
-    buttonCreate.setAttribute("disabled", true);
-    buttonCreate.classList.add("form__submit-button_color_noactive");
   });
 
   function setErrorNewCard(key, errorMessage) {
@@ -236,8 +233,6 @@ export function enableValidationPhoto(formPhoto, validatorsPhoto) {
   });
   formPhoto.addEventListener("submit", (e) => {
     e.preventDefault();
-    buttonCreate.setAttribute("disabled", true);
-    buttonCreate.classList.add("form__submit-button_color_noactive");
   });
 
   function setErrorPhotoCard(key, errorMessage) {

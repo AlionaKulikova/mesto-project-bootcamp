@@ -54,11 +54,6 @@ closeButton.forEach((evt) => {
   });
 });
 
-document.addEventListener("keydown", function (evt) {
-  if (evt.key === "Enter") {
-    openPopup(popupNewMesto);
-  }
-});
 
 textButtonSaveProfile.textContent = "Сохранить";
 nameInput.setAttribute("value", profileName.innerText);

@@ -55,7 +55,6 @@ closeButton.forEach((evt) => {
 });
 
 
-textButtonSaveProfile.textContent = "Сохранить";
 nameInput.setAttribute("value", profileName.innerText);
 jobInput.setAttribute("value", profileOccupation.innerText);
 submitSave.addEventListener("click", function (evt) {

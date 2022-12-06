@@ -123,6 +123,12 @@ Promise.all([MyUser, AllCards])
     const idCardUser = arr[0];
     const myProfile = idCardUser;
     const idCardDel = myProfile._id;
+    const photoUser = idCardUser.avatar;
+    const userName = idCardUser.name;
+    const userJob = idCardUser.about;
+      editProfilePhoto.setAttribute("src", photoUser);
+      profileName.textContent = userName;
+      profileOccupation.textContent = userJob;
     const initialCards = arr[1];
     initialCards.forEach(function (item) {
       const standartCard = item;

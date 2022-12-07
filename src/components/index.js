@@ -1,7 +1,7 @@
 import "../pages/index.css";
 
 import { openPopup, closePopup } from "./modal.js";
-import { likes, deleteCard, createCard, createCardNew } from "./card.js";
+import { likes, deleteCard, createCard } from "./card.js";
 import { enableValidation, enableValidationNew, enableValidationPhoto, validateUsername, validateJob, validateNameCard, validateLink, validateLinkPhoto } from "./validate.js";
 import { getSrcPicture } from "./utils.js";
 import { getMyUser, getAllCards, deleteMyCard, postCard, patchUserData, editPhotoProfil } from "./api.js";
@@ -54,7 +54,6 @@ closeButton.forEach((evt) => {
   });
 });
 
-
 nameInput.setAttribute("value", profileName.innerText);
 jobInput.setAttribute("value", profileOccupation.innerText);
 submitSave.addEventListener("click", function (evt) {
@@ -67,15 +66,6 @@ submitSave.addEventListener("click", function (evt) {
     const userData = patchUserData(enlargingName, enlargingJob);
     userData
       .then((result) => {
-        console.log(result);
-        const myUse = getMyUser();
-        myUse
-          .then((result) => {
-            console.log(result);
-          })
-          .catch((err) => {
-            console.log(err);
-          });
         closePopup(popupProfile);
         textButtonSaveProfile.setAttribute("disabled", true);
         textButtonSaveProfile.classList.add("form__submit-button_color_noactive");
@@ -95,15 +85,6 @@ submitSavePhoto.addEventListener("click", function (evt) {
     const photoProfile = editPhotoProfil(valueImageSrcPhoto);
     photoProfile
       .then((result) => {
-        console.log(result);
-        const myUserP = getMyUser();
-        myUserP
-          .then((result) => {
-            console.log(result);
-          })
-          .catch((err) => {
-            console.log(err);
-          });
         closePopup(popupProfilePhoto);
         textButtonSavePhoto.setAttribute("disabled", true);
         textButtonSavePhoto.classList.add("form__submit-button_color_noactive");
@@ -126,80 +107,40 @@ Promise.all([MyUser, AllCards])
     const photoUser = idCardUser.avatar;
     const userName = idCardUser.name;
     const userJob = idCardUser.about;
-      editProfilePhoto.setAttribute("src", photoUser);
-      profileName.textContent = userName;
-      profileOccupation.textContent = userJob;
+    editProfilePhoto.setAttribute("src", photoUser);
+    profileName.textContent = userName;
+    profileOccupation.textContent = userJob;
     const initialCards = arr[1];
     initialCards.forEach(function (item) {
       const standartCard = item;
       const card = createCard(standartCard, idCardDel);
-      card.querySelector(".element__delete").addEventListener("click", deleteCard, true);
-      card.querySelector(".element__picture").addEventListener("click", function (evt) {
-        openPopup(popupPicture);
-      });
-      const valPictureSrc = document.querySelectorAll(".element__image-element").forEach(function (evt) {
-        evt.addEventListener("click", getSrcPicture, true);
-      });
-      card.querySelector(".element__vector").addEventListener("click", likes, true);
     });
   })
+
   .catch((err) => {
     console.log(err);
   });
 
 addButton.addEventListener("click", () => openPopup(popupNewMesto));
+
 submitCreate.addEventListener("click", function (evt) {
   if (evt.target.classList.contains("form__submit-button")) {
     const valueImageName = document.getElementById("nameImage").value;
     const valueImageSrc = document.getElementById("addLink").value;
-    const card = createCardNew(valueImageName, valueImageSrc);
     textButtonCreateCard.textContent = "Создание...";
-    card.querySelector(".element__picture").addEventListener("click", function (evt) {
-      const popupPicture = document.querySelector("#picture");
-      openPopup(popupPicture);
-    });
-    const valPictureSrc = document.querySelectorAll(".element__image-element").forEach(function (evt) {
-      evt.addEventListener("click", getSrcPicture, true);
-    });
 
     const postCards = postCard(valueImageName, valueImageSrc);
+
     postCards
       .then((result) => {
-        console.log(result);
-        const getCardsNew = getAllCards();
-        getCardsNew
-          .then((result) => {
-            console.log(result);
-            const initialCards = result;
-            initialCards.forEach(function (item) {
-              const standartCard = item;
-              const name = standartCard.name;
-              const link = standartCard.link;
-              if (name === valueImageName && link === valueImageSrc) {
-                const idCard = standartCard._id;
-                const sumlikes = standartCard.likes;
-                const likeLong = sumlikes.length;
-                const likesCard = (document.querySelector(".element__likes").textContent = likeLong);
-                const countLike = document.querySelector(".element__likes").setAttribute("id", idCard);
-                const targetCardProfile = standartCard.owner;
-                const idTargetCardProfile = targetCardProfile._id;
-                card.querySelector(".delete").setAttribute("id", idCard);
-                card.querySelector(".element__delete").addEventListener("click", deleteCard, true);
-                card.querySelector(".like").setAttribute("id", idCard);
-                card.querySelector(".element__vector").addEventListener("click", likes, true);
-              }
-            });
-            card.querySelector(".element__vector").addEventListener("click", likes, true);
-            card.querySelector(".element__delete").addEventListener("click", deleteCard, true);
-            document.querySelector("#nameImage").value = "";
-            document.querySelector("#addLink").value = "";
-          })
-          .catch((err) => {
-            console.log(err);
-          });
+        const targetCardProfile = result.owner;
+        const idCardDel = targetCardProfile._id;
+        const cardNew = createCard(result, idCardDel);
         closePopup(popupNewMesto);
         textButtonCreateCard.setAttribute("disabled", true);
         textButtonCreateCard.classList.add("form__submit-button_color_noactive");
+        document.querySelector("#nameImage").value = "";
+        document.querySelector("#addLink").value = "";
         textButtonCreateCard.textContent = "Создать";
       })
       .catch((err) => {
@@ -207,6 +148,7 @@ submitCreate.addEventListener("click", function (evt) {
       });
   }
 });
+
 
 enableValidation(document.querySelector("#form"), {
   name: validateUsername,

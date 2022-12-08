@@ -58,15 +58,15 @@ nameInput.setAttribute("value", profileName.innerText);
 jobInput.setAttribute("value", profileOccupation.innerText);
 submitSave.addEventListener("click", function (evt) {
   if (evt.target.classList.contains("form__submit-button")) {
-    const enlargingName = document.getElementById("nameInput").value;
-    const enlargingJob = document.getElementById("jobInput").value;
-    profileName.textContent = enlargingName;
-    profileOccupation.textContent = enlargingJob;
+      const enlargingName = nameInput.value;
+      const enlargingJob = jobInput.value;
     textButtonSaveProfile.textContent = "Сохранение...";
     const userData = patchUserData(enlargingName, enlargingJob);
     userData
-      .then((result) => {
+      .then((result) => {    
         closePopup(popupProfile);
+        profileName.textContent = enlargingName;
+        profileOccupation.textContent = enlargingJob;
         textButtonSaveProfile.setAttribute("disabled", true);
         textButtonSaveProfile.classList.add("form__submit-button_color_noactive");
       })
@@ -81,13 +81,13 @@ submitSave.addEventListener("click", function (evt) {
 
 submitSavePhoto.addEventListener("click", function (evt) {
   if (evt.target.classList.contains("form__submit-button")) {
-    const valueImageSrcPhoto = document.getElementById("profileAddLink").value;
-    editProfilePhoto.setAttribute("src", valueImageSrcPhoto);
+    const valueImageSrcPhoto = document.getElementById("profileAddLink").value;    
     textButtonSavePhoto.textContent = "Сохранение...";
     const photoProfile = editPhotoProfil(valueImageSrcPhoto);
     photoProfile
       .then((result) => {
         closePopup(popupProfilePhoto);
+        editProfilePhoto.setAttribute("src", valueImageSrcPhoto);
         textButtonSavePhoto.setAttribute("disabled", true);
         textButtonSavePhoto.classList.add("form__submit-button_color_noactive");
         document.querySelector("#profileAddLink").value = " ";

@@ -56,8 +56,7 @@ closeButtons.forEach((button) => {
 
 nameInput.setAttribute("value", profileName.innerText);
 jobInput.setAttribute("value", profileOccupation.innerText);
-submitSave.addEventListener("click", function (evt) {
-  if (evt.target.classList.contains("form__submit-button")) {
+submitSave.addEventListener("submit", function (evt) {
       const enlargingName = nameInput.value;
       const enlargingJob = jobInput.value;
     textButtonSaveProfile.textContent = "Сохранение...";
@@ -75,12 +74,10 @@ submitSave.addEventListener("click", function (evt) {
       })
       .finally(() => {
         textButtonSaveProfile.textContent = "Сохранить";
-      });
-  }
+      }); 
 });
 
-submitSavePhoto.addEventListener("click", function (evt) {
-  if (evt.target.classList.contains("form__submit-button")) {
+submitSavePhoto.addEventListener("submit", function (evt) {
     const valueImageSrcPhoto = document.getElementById("profileAddLink").value;    
     textButtonSavePhoto.textContent = "Сохранение...";
     const photoProfile = editPhotoProfil(valueImageSrcPhoto);
@@ -98,7 +95,6 @@ submitSavePhoto.addEventListener("click", function (evt) {
       .finally(() => {
         textButtonSavePhoto.textContent = "Сохранить";
       });
-  }
 });
 
 const MyUser = getMyUser();
@@ -127,8 +123,7 @@ Promise.all([MyUser, AllCards])
 
 addButton.addEventListener("click", () => openPopup(popupNewMesto));
 
-submitCreate.addEventListener("click", function (evt) {
-  if (evt.target.classList.contains("form__submit-button")) {
+submitCreate.addEventListener("submit", function (evt) {
     const valueImageName = document.getElementById("nameImage").value;
     const valueImageSrc = document.getElementById("addLink").value;
     textButtonCreateCard.textContent = "Создание...";
@@ -152,7 +147,6 @@ submitCreate.addEventListener("click", function (evt) {
       .finally(() => {
         textButtonCreateCard.textContent = "Создать";
       });
-  }
 });
 
 enableValidation(document.querySelector("#form"), {

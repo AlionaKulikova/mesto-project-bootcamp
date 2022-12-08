@@ -69,10 +69,12 @@ submitSave.addEventListener("click", function (evt) {
         closePopup(popupProfile);
         textButtonSaveProfile.setAttribute("disabled", true);
         textButtonSaveProfile.classList.add("form__submit-button_color_noactive");
-        textButtonSaveProfile.textContent = "Сохранить";
       })
       .catch((err) => {
         console.log(err);
+      })
+      .finally(() => {
+        textButtonSaveProfile.textContent = "Сохранить";
       });
   }
 });
@@ -88,12 +90,14 @@ submitSavePhoto.addEventListener("click", function (evt) {
         closePopup(popupProfilePhoto);
         textButtonSavePhoto.setAttribute("disabled", true);
         textButtonSavePhoto.classList.add("form__submit-button_color_noactive");
-        textButtonSavePhoto.textContent = "Сохранить";
+        document.querySelector("#profileAddLink").value = " ";
       })
       .catch((err) => {
         console.log(err);
+      })
+      .finally(() => {
+        textButtonSavePhoto.textContent = "Сохранить";
       });
-    document.querySelector("#profileAddLink").value = " ";
   }
 });
 
@@ -141,14 +145,15 @@ submitCreate.addEventListener("click", function (evt) {
         textButtonCreateCard.classList.add("form__submit-button_color_noactive");
         document.querySelector("#nameImage").value = "";
         document.querySelector("#addLink").value = "";
-        textButtonCreateCard.textContent = "Создать";
       })
       .catch((err) => {
         console.log(err);
+      })
+      .finally(() => {
+        textButtonCreateCard.textContent = "Создать";
       });
   }
 });
-
 
 enableValidation(document.querySelector("#form"), {
   name: validateUsername,

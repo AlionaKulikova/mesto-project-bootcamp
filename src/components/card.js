@@ -4,6 +4,9 @@ import { openPopup, closePopup } from "./modal.js";
 import likeWhite from "../images/Group.svg";
 import likeBlack from "../images/Union.svg";
 
+ const popupPicture = document.querySelector("#picture");
+ const container = document.querySelector(".elements");
+
 export function likes(evt, like, card) {
   const targetCard = card;
   const eventTargetLikeActive = evt.target;
@@ -59,7 +62,6 @@ export function deleteCard(evt) {
 }
 
 export function createCard(item, user) {
-  const container = document.querySelector(".elements");
   const elementCopy = getCard(item, user);
   container.prepend(elementCopy);
 }
@@ -105,8 +107,7 @@ function getCard(item, user) {
     card.querySelector(".delete").removeAttribute("src");
   }
   card.querySelector(".element__picture").addEventListener("click", function (evt) {
-    const popupPicture = document.querySelector("#picture");
-    openPopup(popupPicture);
+       openPopup(popupPicture);
   });
   card.querySelectorAll(".element__image-element").forEach(function (evt) {
     evt.addEventListener("click", getSrcPicture, true);

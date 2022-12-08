@@ -12,7 +12,7 @@ const editProfile = document.querySelector(".profile__edit-button");
 const popupProfilePhoto = document.querySelector("#editPhoto");
 const editProfilePhotoOpen = document.querySelector(".profile__avatar");
 
-const closeButton = document.querySelectorAll(".popup__close");
+const closeButtons = document.querySelectorAll(".popup__close");
 const submitSave = document.querySelector(".form");
 const submitCreate = document.querySelector(".form-new");
 const picture = document.querySelector(".picture__images");
@@ -44,9 +44,9 @@ editProfile.addEventListener("click", () => openPopup(popupProfile));
 
 editProfilePhotoOpen.addEventListener("click", () => openPopup(popupProfilePhoto));
 
-closeButton.forEach((evt) => {
-  const popup = evt.closest(".popup");
-  evt.addEventListener("click", () => closePopup(popup));
+closeButtons.forEach((button) => {
+  const popup = button.closest(".popup");
+  button.addEventListener("click", () => closePopup(popup));
   popup.addEventListener("click", function (e) {
     if (!submitSave.contains(e.target) && !submitCreate.contains(e.target) && !picture.contains(e.target) && !photoProfile.contains(e.target)) {
       closePopup(popup);

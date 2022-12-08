@@ -1,19 +1,18 @@
 import { openPopupPicture, getSrcPicture } from "./utils.js";
 
-export function closePopup(popup) {
-  popup.classList.remove("popup_opened");
-  document.removeEventListener("keydown", function (e) {
-    if (e.key === "Escape") {
-      closePopup(popup);
-    }
-  });
+function closeByEscape(evt) {
+  if (evt.key === "Escape") {
+    const openedPopup = document.querySelector(".popup_opened");
+    closePopup(openedPopup);
+  }
 }
 
 export function openPopup(popup) {
   popup.classList.add("popup_opened");
-  document.addEventListener("keydown", function (e) {
-    if (e.key === "Escape") {
-      closePopup(popup);
-    }
-  });
+  document.addEventListener("keydown", closeByEscape);
+}
+
+export function closePopup(popup) {
+  popup.classList.remove("popup_opened");
+  document.removeEventListener("keydown", closeByEscape);
 }

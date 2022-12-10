@@ -1,4 +1,5 @@
-.form__error {
+.form__field-error_active{
+  display: block;
   margin: 5px 0 13px 36px;
   font-style: normal;
   font-weight: 400;
@@ -8,7 +9,7 @@
 }
 
 @media screen and (max-width: 600px) {
-  .form__error {
+  .form__field-error_active {
     margin: 5px 0 13px 22px;
   }
 }

@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Mesto</title>  
+    <title>Mesto</title>
   </head>
   <body class="body">
     <div class="page">
@@ -37,16 +37,12 @@
         <div class="popup__container">
           <button class="popup__close" id="profile-close" type="submit"></button>
           <h2 class="form__title">Редактировать профиль</h2>
-          <form id="form" name="profile"  method="POST" type="submit" class="form" novalidate>
+          <form class="form" novalidate id="form" name="profile" method="POST" type="submit">
             <div class="form__inputs">
-              <div id="nameInputGroup">
-                <input type="text" name="name" placeholder="Имя пользователя" autocomplete="off" class="form__field form_input-name" id="nameInput" required />
-                <p class="form__error form__error_hidden"></p>
-              </div>
-              <div id="nameInputGroupSecond">
-                <input type="text" name="job" placeholder="О себе" autocomplete="off" class="form__field" id="jobInput" />
-                <p class="form__error form__error_hidden"></p>
-              </div>
+              <input id="nameInput" class="form__field form_input-name" type="text" placeholder="Имя пользователя" required minlength="2" maxlength="40" name="name" />
+              <span class="nameInput-error form__field-error"></span>
+              <input id="jobInput" class="form__field form_input-name" type="text" placeholder="О себе" required name="job" minlength="2" maxlength="200" />
+              <span class="jobInput-error form__field-error"></span>
             </div>
             <button type="submit" id="save" class="form__submit-button form__submit-button_text_center">
               Сохранить
@@ -58,14 +54,12 @@
         <div class="popup__container">
           <button class="popup__close" id="new-close" type="submit"></button>
           <h2 class="form__title form__title_name_new">Новое место</h2>
-          <form id="form-new" class="form form-new" type="submit" name="new-card" novalidate>
+          <form class="form form-new" novalidate type="submit" name="new-card" id="form-new">
             <div id="nameCard">
-              <input type="text" name="nameImage" placeholder="Название" class="form__field_name_text form__field" id="nameImage" />
-              <p class="form__error form__error_hidden"></p>
-            </div>
-            <div id="linkCard">
-              <input type="url" name="addLink" placeholder="Ссылка на картинку" class="form__field_name_text form__field" id="addLink" />
-              <p class="form__error form__error_hidden"></p>
+              <input id="nameImage" class="form__field_name_text form__field" type="text" placeholder="Название" required name="nameImage" minlength="2" maxlength="30" />
+              <span class="nameImage-error form__field-error"></span>
+              <input id="addLink" class="form__field_name_text form__field" type="url" placeholder="Ссылка на картинку" required name="addLink" />
+              <span class="addLink-error form__field-error"></span>
             </div>
             <button type="submit" id="create" class="form__submit-button form__submit-button_text_center form__submit-button_color_noactive" disabled>
               Создать
@@ -84,15 +78,14 @@
           </div>
         </div>
       </div>
-
       <div class="popup" id="editPhoto">
         <div class="popup__container">
           <button class="popup__close" id="new-close" type="submit"></button>
           <h2 class="form__title form__title_name_new">Обновить аватар</h2>
-          <form id="form-photo" class="form form-new form-photo" type="submit" name="profile-photo" novalidate>
+          <form class="form form-new form-photo" novalidate id="form-photo" type="submit" name="profile-photo">
             <div id="linkCardPhoto">
-              <input type="url" name="addLinkPhoto" placeholder="Ссылка на аватар" class="form__field_name_text form__field" id="profileAddLink" />
-              <p class="form__error form__error_hidden"></p>
+              <input id="profileAddLink" class="form__field_name_text form__field" type="url" placeholder="Ссылка на аватар" required />
+              <span class="profileAddLink-error form__field-error"></span>
             </div>
             <button type="submit" id="edit" class="form__submit-button form__submit-button_text_center form__submit-button_color_noactive" disabled>
               Сохранить

@@ -2,7 +2,7 @@ import "../pages/index.css";
 
 import { openPopup, closePopup } from "./modal.js";
 import { likes, deleteCard, createCard } from "./card.js";
-import { enableValidation, enableValidationNew, enableValidationPhoto, validateUsername, validateJob, validateNameCard, validateLink, validateLinkPhoto } from "./validate.js";
+import { enableValidation } from "./validate.js";
 import { getSrcPicture } from "./utils.js";
 import { getMyUser, getAllCards, deleteMyCard, postCard, patchUserData, editPhotoProfil } from "./api.js";
 
@@ -57,44 +57,44 @@ closeButtons.forEach((button) => {
 nameInput.setAttribute("value", profileName.innerText);
 jobInput.setAttribute("value", profileOccupation.innerText);
 submitSave.addEventListener("submit", function (evt) {
-      const enlargingName = nameInput.value;
-      const enlargingJob = jobInput.value;
-    textButtonSaveProfile.textContent = "Сохранение...";
-    const userData = patchUserData(enlargingName, enlargingJob);
-    userData
-      .then((result) => {    
-        closePopup(popupProfile);
-        profileName.textContent = enlargingName;
-        profileOccupation.textContent = enlargingJob;
-        textButtonSaveProfile.setAttribute("disabled", true);
-        textButtonSaveProfile.classList.add("form__submit-button_color_noactive");
-      })
-      .catch((err) => {
-        console.log(err);
-      })
-      .finally(() => {
-        textButtonSaveProfile.textContent = "Сохранить";
-      }); 
+  const enlargingName = nameInput.value;
+  const enlargingJob = jobInput.value;
+  textButtonSaveProfile.textContent = "Сохранение...";
+  const userData = patchUserData(enlargingName, enlargingJob);
+  userData
+    .then((result) => {
+      closePopup(popupProfile);
+      profileName.textContent = enlargingName;
+      profileOccupation.textContent = enlargingJob;
+      textButtonSaveProfile.setAttribute("disabled", true);
+      textButtonSaveProfile.classList.add("form__submit-button_color_noactive");
+    })
+    .catch((err) => {
+      console.log(err);
+    })
+    .finally(() => {
+      textButtonSaveProfile.textContent = "Сохранить";
+    });
 });
 
 submitSavePhoto.addEventListener("submit", function (evt) {
-    const valueImageSrcPhoto = document.getElementById("profileAddLink").value;    
-    textButtonSavePhoto.textContent = "Сохранение...";
-    const photoProfile = editPhotoProfil(valueImageSrcPhoto);
-    photoProfile
-      .then((result) => {
-        closePopup(popupProfilePhoto);
-        editProfilePhoto.setAttribute("src", valueImageSrcPhoto);
-        textButtonSavePhoto.setAttribute("disabled", true);
-        textButtonSavePhoto.classList.add("form__submit-button_color_noactive");
-        document.querySelector("#profileAddLink").value = " ";
-      })
-      .catch((err) => {
-        console.log(err);
-      })
-      .finally(() => {
-        textButtonSavePhoto.textContent = "Сохранить";
-      });
+  const valueImageSrcPhoto = document.getElementById("profileAddLink").value;
+  textButtonSavePhoto.textContent = "Сохранение...";
+  const photoProfile = editPhotoProfil(valueImageSrcPhoto);
+  photoProfile
+    .then((result) => {
+      closePopup(popupProfilePhoto);
+      editProfilePhoto.setAttribute("src", valueImageSrcPhoto);
+      textButtonSavePhoto.setAttribute("disabled", true);
+      textButtonSavePhoto.classList.add("form__submit-button_color_noactive");
+      document.querySelector("#profileAddLink").value = " ";
+    })
+    .catch((err) => {
+      console.log(err);
+    })
+    .finally(() => {
+      textButtonSavePhoto.textContent = "Сохранить";
+    });
 });
 
 const MyUser = getMyUser();
@@ -124,41 +124,36 @@ Promise.all([MyUser, AllCards])
 addButton.addEventListener("click", () => openPopup(popupNewMesto));
 
 submitCreate.addEventListener("submit", function (evt) {
-    const valueImageName = document.getElementById("nameImage").value;
-    const valueImageSrc = document.getElementById("addLink").value;
-    textButtonCreateCard.textContent = "Создание...";
+  const valueImageName = document.getElementById("nameImage").value;
+  const valueImageSrc = document.getElementById("addLink").value;
+  textButtonCreateCard.textContent = "Создание...";
 
-    const postCards = postCard(valueImageName, valueImageSrc);
+  const postCards = postCard(valueImageName, valueImageSrc);
 
-    postCards
-      .then((result) => {
-        const targetCardProfile = result.owner;
-        const idCardDel = targetCardProfile._id;
-        const cardNew = createCard(result, idCardDel);
-        closePopup(popupNewMesto);
-        textButtonCreateCard.setAttribute("disabled", true);
-        textButtonCreateCard.classList.add("form__submit-button_color_noactive");
-        document.querySelector("#nameImage").value = "";
-        document.querySelector("#addLink").value = "";
-      })
-      .catch((err) => {
-        console.log(err);
-      })
-      .finally(() => {
-        textButtonCreateCard.textContent = "Создать";
-      });
+  postCards
+    .then((result) => {
+      const targetCardProfile = result.owner;
+      const idCardDel = targetCardProfile._id;
+      const cardNew = createCard(result, idCardDel);
+      closePopup(popupNewMesto);
+      textButtonCreateCard.setAttribute("disabled", true);
+      textButtonCreateCard.classList.add("form__submit-button_color_noactive");
+      document.querySelector("#nameImage").value = "";
+      document.querySelector("#addLink").value = "";
+    })
+    .catch((err) => {
+      console.log(err);
+    })
+    .finally(() => {
+      textButtonCreateCard.textContent = "Создать";
+    });
 });
 
-enableValidation(document.querySelector("#form"), {
-  name: validateUsername,
-  job: validateJob,
-});
-
-enableValidationNew(document.querySelector("#form-new"), {
-  nameImage: validateNameCard,
-  addLink: validateLink,
-});
-
-enableValidationPhoto(document.querySelector("#form-photo"), {
-  addLinkPhoto: validateLinkPhoto,
+enableValidation({
+  formSelector: ".form",
+  inputSelector: ".form__field",
+  submitButtonSelector: ".form__submit-button",
+  inputErrorClass: "form__field_type_error",
+  errorClass: "form__field-error_active",
+  inactiveButtonClass: "form__submit-button_color_noactive",
 });

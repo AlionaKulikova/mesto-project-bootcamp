@@ -1,11 +1,21 @@
 import { getMyUser, getAllCards, deleteMyCard, postCard, putLikes, delLikes } from "./api.js";
-import { openPopupPicture, getSrcPicture } from "./utils.js";
-import { openPopup, closePopup } from "./modal.js";
+import { openPopup, closePopup } from "./utils.js";
 import likeWhite from "../images/Group.svg";
 import likeBlack from "../images/Union.svg";
 
- const popupPicture = document.querySelector("#picture");
- const container = document.querySelector(".elements");
+const maxPicture = document.querySelector(".picture__images");
+const pictureCaption = document.querySelector(".picture__caption");
+const popupPicture = document.querySelector("#picture");
+const container = document.querySelector(".elements");
+
+export function getSrcPicture(evt) {
+  const evtTargetPicture = evt.target;
+  const valSrc = evtTargetPicture.getAttribute("src");
+  const valCaption = evtTargetPicture.getAttribute("alt");
+  maxPicture.setAttribute("src", valSrc);
+  maxPicture.setAttribute("alt", valCaption);
+  pictureCaption.textContent = valCaption;
+}
 
 export function likes(evt, like, card) {
   const targetCard = card;
@@ -78,9 +88,13 @@ function getCard(item, user) {
   const elementTemplate = document.querySelector("#card-template").content;
   const elementCopy = elementTemplate.querySelector(".element").cloneNode(true);
   const card = elementCopy;
+  const cardImage = card.querySelector(".element__image-element");
+  const cardLike = card.querySelector(".like");
+  const cardDelete = card.querySelector(".delete");
+
   card.querySelector(".element__title").textContent = imageName;
-  card.querySelector(".element__image-element").setAttribute("src", imageSrc);
-  card.querySelector(".element__image-element").setAttribute("alt", imageName);
+  cardImage.setAttribute("src", imageSrc);
+  cardImage.setAttribute("alt", imageName);
   card.querySelector(".element__likes").textContent = likeLong;
 
   sumlikes.forEach(function (item) {
@@ -88,30 +102,27 @@ function getCard(item, user) {
     const idMylike = mylike._id;
     const myLikeOne = idMylike;
     if (idCardDel === myLikeOne) {
-      card.querySelector(".like").setAttribute("src", likeBlack);
+      cardLike.setAttribute("src", likeBlack);
     } else {
-      card.querySelector(".like").setAttribute("src", likeWhite);
+      cardLike.setAttribute("src", likeWhite);
     }
   });
-  card.querySelector(".like").addEventListener("click", function (evt) {
+  cardLike.addEventListener("click", function (evt) {
     likes(evt, idCard, card);
   });
   const targetCardProfile = standartCard.owner;
   const idTargetCardProfile = targetCardProfile._id;
   if (idCardDel === idTargetCardProfile) {
-    card.querySelector(".delete").setAttribute("id", idCard);
-    card.querySelector(".delete").addEventListener("click", function (evt) {
+    cardDelete.setAttribute("id", idCard);
+    cardDelete.addEventListener("click", function (evt) {
       deleteCard(evt, idCard);
     });
   } else {
-    card.querySelector(".delete").removeAttribute("src");
+    cardDelete.removeAttribute("src");
   }
   card.querySelector(".element__picture").addEventListener("click", function (evt) {
-       openPopup(popupPicture);
+    openPopup(popupPicture);
   });
-  card.querySelectorAll(".element__image-element").forEach(function (evt) {
-    evt.addEventListener("click", getSrcPicture, true);
-  });
-
+  cardImage.addEventListener("click", getSrcPicture, true);
   return card;
 }

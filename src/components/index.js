@@ -1,9 +1,8 @@
 import "../pages/index.css";
 
-import { openPopup, closePopup } from "./modal.js";
-import { likes, deleteCard, createCard } from "./card.js";
+import { openPopup, closePopup } from "./utils.js";
+import { likes, deleteCard, createCard, getSrcPicture } from "./card.js";
 import { enableValidation } from "./validate.js";
-import { getSrcPicture } from "./utils.js";
 import { getMyUser, getAllCards, deleteMyCard, postCard, patchUserData, editPhotoProfil } from "./api.js";
 
 const popupProfile = document.querySelector("#profile-edit");
@@ -37,8 +36,12 @@ const nameImageEdit = document.querySelector("#nameImage");
 const addLinkEdit = document.querySelector("#addLink");
 const addButton = document.querySelector(".add-button");
 const elementTitle = document.querySelector(".element__title");
-const linkCard = document.querySelector(".element__image-element");
 const textButtonCreateCard = document.querySelector("#create");
+
+function disableButton(submitButton) {
+  submitButton.setAttribute("disabled", true);
+  submitButton.classList.add("form__submit-button_color_noactive");
+}
 
 editProfile.addEventListener("click", () => openPopup(popupProfile));
 
@@ -66,8 +69,7 @@ submitSave.addEventListener("submit", function (evt) {
       closePopup(popupProfile);
       profileName.textContent = enlargingName;
       profileOccupation.textContent = enlargingJob;
-      textButtonSaveProfile.setAttribute("disabled", true);
-      textButtonSaveProfile.classList.add("form__submit-button_color_noactive");
+      disableButton(textButtonSaveProfile);
     })
     .catch((err) => {
       console.log(err);
@@ -78,16 +80,15 @@ submitSave.addEventListener("submit", function (evt) {
 });
 
 submitSavePhoto.addEventListener("submit", function (evt) {
-  const valueImageSrcPhoto = document.getElementById("profileAddLink").value;
+  const valueImageSrcPhoto = profileLinkInput.value;
   textButtonSavePhoto.textContent = "Сохранение...";
   const photoProfile = editPhotoProfil(valueImageSrcPhoto);
   photoProfile
     .then((result) => {
       closePopup(popupProfilePhoto);
       editProfilePhoto.setAttribute("src", valueImageSrcPhoto);
-      textButtonSavePhoto.setAttribute("disabled", true);
-      textButtonSavePhoto.classList.add("form__submit-button_color_noactive");
-      document.querySelector("#profileAddLink").value = " ";
+      disableButton(textButtonSavePhoto);
+      profileLinkInput.value = " ";
     })
     .catch((err) => {
       console.log(err);
@@ -97,9 +98,9 @@ submitSavePhoto.addEventListener("submit", function (evt) {
     });
 });
 
-const MyUser = getMyUser();
-const AllCards = getAllCards();
-Promise.all([MyUser, AllCards])
+const myUser = getMyUser();
+const allCards = getAllCards();
+Promise.all([myUser, allCards])
   .then((arr) => {
     const idCardUser = arr[0];
     const myProfile = idCardUser;
@@ -124,8 +125,8 @@ Promise.all([MyUser, AllCards])
 addButton.addEventListener("click", () => openPopup(popupNewMesto));
 
 submitCreate.addEventListener("submit", function (evt) {
-  const valueImageName = document.getElementById("nameImage").value;
-  const valueImageSrc = document.getElementById("addLink").value;
+  const valueImageName = nameImageEdit.value;
+  const valueImageSrc = addLinkEdit.value;
   textButtonCreateCard.textContent = "Создание...";
 
   const postCards = postCard(valueImageName, valueImageSrc);
@@ -136,10 +137,9 @@ submitCreate.addEventListener("submit", function (evt) {
       const idCardDel = targetCardProfile._id;
       const cardNew = createCard(result, idCardDel);
       closePopup(popupNewMesto);
-      textButtonCreateCard.setAttribute("disabled", true);
-      textButtonCreateCard.classList.add("form__submit-button_color_noactive");
-      document.querySelector("#nameImage").value = "";
-      document.querySelector("#addLink").value = "";
+      disableButton(textButtonCreateCard);
+      nameImageEdit.value = "";
+      addLinkEdit.value = "";
     })
     .catch((err) => {
       console.log(err);

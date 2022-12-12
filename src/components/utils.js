@@ -1,12 +1,18 @@
-import { openPopup, closePopup } from "./modal.js";
+import { getSrcPicture } from "./card.js";
 
-const maxPicture = document.querySelector(".picture__images");
-const pictureCaption = document.querySelector(".picture__caption");
+function closeByEscape(evt) {
+  if (evt.key === "Escape") {
+    const openedPopup = document.querySelector(".popup_opened");
+    closePopup(openedPopup);
+  }
+}
 
-export function getSrcPicture(evt) {
-  const evtTargetPicture = evt.target;
-  const valSrc = evtTargetPicture.getAttribute("src");
-  const valCaption = evtTargetPicture.getAttribute("alt");
-  maxPicture.setAttribute("src", valSrc);
-  pictureCaption.textContent = valCaption;
+export function openPopup(popup) {
+  popup.classList.add("popup_opened");
+  document.addEventListener("keydown", closeByEscape);
+}
+
+export function closePopup(popup) {
+  popup.classList.remove("popup_opened");
+  document.removeEventListener("keydown", closeByEscape);
 }

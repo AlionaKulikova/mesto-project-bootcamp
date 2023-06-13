@@ -18,6 +18,6 @@
 
 ### Инструкция по запуску проекта:
 <div>
-- клонируем репозиторий себе на ПК 
-  - в терминале: npm install --> npm run build --> npm run dev
+# клонируем репозиторий себе на ПК 
+# в терминале: npm install --> npm run build --> npm run dev
 </div>

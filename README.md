@@ -16,9 +16,8 @@
 <img src="https://sun9-44.userapi.com/impg/B5C75oY9RXaNvf6EYA0TgQGd6TCgCADRqcw_uw/VBEIm6WHfa4.jpg?size=859x728&quality=95&sign=ba59bdf94c0e07cdbc7fec163a54704a&type=album" align="center" style="width: 60%" />
 </div>  
 
-## Запуск проекта
 ### Инструкция по запуску проекта:
 <div>
-- клонируем репозиторий себе на ПК;
-- в терминале: npm install --> npm run build --> npm run dev
+- клонируем репозиторий себе на ПК 
+  - в терминале: npm install --> npm run build --> npm run dev
 </div>

@@ -27,10 +27,7 @@
     ✔️  работа с макетом (Figma)
     ✔️  Шрифты
 </br>
-<p> Сайт знакомит с интересными местами в России. Адаптирован под мобильные устройства. На данном сайте можно просматривать карточки с картинками. Пользователь может добавить свои картинки по ссылке. Редактировать данные пользователя. Также ставить лайки к картинкам. И удалять карточки. </p>
-<div align="center">
-<img src="https://sun9-44.userapi.com/impg/B5C75oY9RXaNvf6EYA0TgQGd6TCgCADRqcw_uw/VBEIm6WHfa4.jpg?size=859x728&quality=95&sign=ba59bdf94c0e07cdbc7fec163a54704a&type=album" align="center" style="width: 60%" />
-</div>  
+
 
 ### Инструкция по установке:
  <div align="left">
@@ -40,5 +37,11 @@
   - в терминале: npm install --> npm run build --> npm run dev 
   
 </div>
+
+<p> Сайт знакомит с интересными местами в России. Адаптирован под мобильные устройства. На данном сайте можно просматривать карточки с картинками. Пользователь может добавить свои картинки по ссылке. Редактировать данные пользователя. Также ставить лайки к картинкам. И удалять карточки. </p>
+<div align="center">
+<img src="https://sun9-44.userapi.com/impg/B5C75oY9RXaNvf6EYA0TgQGd6TCgCADRqcw_uw/VBEIm6WHfa4.jpg?size=859x728&quality=95&sign=ba59bdf94c0e07cdbc7fec163a54704a&type=album" align="center" style="width: 60%" />
+</div>  
+
 
 
